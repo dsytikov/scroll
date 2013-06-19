@@ -27,14 +27,14 @@ app.config.from_object(__name__)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 
-def init_db():
-    """Creates the database tables."""
+"""def init_db():
+    #Creates the database tables.
     with app.app_context():
         db = get_db()
         with app.open_resource('schema.sql', mode='r') as f:
             db.cursor().executescript(f.read())
         db.commit()
-
+"""
 
 def get_db():
     """Opens a new database connection if there is none yet for the
@@ -61,8 +61,8 @@ def close_db_connection(exception):
 def show_entries():
     db = get_db()
     cur = db.execute('select id, surname, name, patronymic, company, post, number, status from intruders order by id asc')
-    entries = cur.fetchall()
-    return render_template('show_entries.html', entries=entries)
+    intruders = cur.fetchall()
+    return render_template('show_entries.html', intruders=intruders)
 
 """@app.route('/show_detail/<id>')
 def show_detail(id):
@@ -78,24 +78,23 @@ def show_detail(id):
     entries = cur.fetchall()
     return render_template('show_detail.html', entries=entries)
 	
-'''@app.route('/detail', methods=['GET'])
+@app.route('/detail', methods=['GET'])
 def detail():
     db = get_db()
     db.execute('select f, i, o, c, t, s, n1d, n1t, n1w, n1r, n1p from entries order by asc'
 	entries = cur.fetchall()
-    return redirect(url_for('show_entries'))'''	
+    return redirect(url_for('show_entries'))"""
 	
 @app.route('/add', methods=['POST'])
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
     db = get_db()
-    db.execute('insert into entries (f, i, o, c, t, s) values (?, ?, ?, ?, ?, ?)',
-                 [request.form['f'], request.form['i'], request.form['o'], request.form['c'], request.form['t'], request.form['s']])
+    db.execute('insert into intruders (surname, name, patronymic, company, post, number, status) values (?, ?, ?, ?, ?, ?, ?)',
+                 [request.form['surname'], request.form['name'], request.form['patronymic'], request.form['company'], request.form['post'], request.form['number'], request.form['status']])
     db.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -118,7 +117,6 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('show_entries'))
 
-"""
 if __name__ == '__main__':
 #    init_db()
     app.run(debug=True)
