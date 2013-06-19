@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=entries>
+  <table>
+	<colgroup>
+		<col id="f" />
+			<col id="i" />
+			<col id="o" />
+			<col id="c" />
+			<col id="t" />
+			<col id="s" />
+			<col id="id" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">Фамилия</th>
+				<th scope="col">Имя</th>
+				<th scope="col">Отчество</th>
+				<th scope="col">Компания</th>
+				<th scope="col">Должность</th>
+				<th scope="col">Табельный</th>
+				<th scope="col">Статус</th>
+		</tr>
+	</thead>
+	<tbody>
+  {% for entry in intruders %}
+	<tr>
+	<td>{{ intruders.surname }}</td>
+	<td>{{ intruders.name }}</td>
+	<td>{{ intruders.patronymic }}</td>
+	<td>{{ intruders.company }}</td>
+	<td>{{ intruders.post }}</td>
+	<td>{{ intruders.number }}</td>
+    <td>{{ intruders.status }}</td>
+	</tr>
+  {% endfor %}
+	</tbody>
+  </table>
+  </ul>
+{% endblock %}

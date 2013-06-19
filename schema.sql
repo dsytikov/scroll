@@ -1,5 +1,5 @@
 CREATE TABLE intruders (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   surname TEXT(20),
   name TEXT(15),
   patronymic TEXT(20),
