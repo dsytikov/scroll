@@ -18,7 +18,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 DATABASE = 'scroll.db'
 DEBUG = True
 SECRET_KEY = 'development key'
-USERNAME = 'admin'
+USERNAME = '1'
 PASSWORD = '1'
 
 # create our little application :)

@@ -1,0 +1,23 @@
+body            { font-family: calibri; background: #eee; }
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+table { border-collapse: separate; }
+thead { text-align: left; background: #66f }
+td, th { paddind: 10px;}
+col#f { width: 150px; }
+col#i { width: 100px; }
+col#o { width: 150px; }
+col#c { width: 200px; }
+col#t { width: 100px; }
+col#s { width: 150px; }
+
+.page           { margin: 2em auto; width: 75em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl   { font-weight: bold; }
+.metanav        { text-align: right; font-size: 0.8em; padding: 0.3em;
+                  margin-bottom: 1em; background: #fafafa; }
+.error          { background: #F0D6D6; padding: 0.5em; }
