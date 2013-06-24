@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+ {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <table>
+		<tr>
+			<td>Фамилия</td>
+			<td><input type=text size=30 name=surname></td>
+		</tr>
+		<tr>
+			<td>Имя</td>
+			<td><input type=text size=30 name=name></td>
+		</tr>
+		<tr>
+			<td>Отчество</td>
+			<td><input type=text size=30 name=patronymic></td>
+		</tr>
+		<tr>
+			<td>Компания</td>
+			<td><input type=text size=30 name=company></td>
+		</tr>
+		<tr>
+			<td>Должность</td>
+			<td><input type=text size=30 name=post></td>
+		</tr>
+		<tr>
+			<td>Табельный номер</td>
+			<td><input type=text size=30 name=number></td>
+		</tr>
+		<tr>
+			<td>Статус</td>
+			<td><input type=text size=30 name=status></td>
+		</tr>
+		<td></td>
+		<td><input type=submit value=Записать></td>
+	</table>
+    </form>
+  {% endif %}
+  <table>
+	<colgroup>
+		<col id="f" />
+			<col id="i" />
+			<col id="o" />
+			<col id="c" />
+			<col id="t" />
+			<col id="s" />
+			<col id="id" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">Фамилия</th>
+				<th scope="col">Имя</th>
+				<th scope="col">Отчество</th>
+				<th scope="col">Компания</th>
+				<th scope="col">Должность</th>
+				<th scope="col">Табельный</th>
+				<th scope="col">Статус</th>
+		</tr>
+	</thead>
+	<tbody>
+  {% for intruders in intruders %}
+	<tr>
+	<td>{{ intruders.surname }}</td>
+	<td>{{ intruders.name }}</td>
+	<td>{{ intruders.patronymic }}</td>
+	<td>{{ intruders.company }}</td>
+	<td>{{ intruders.post }}</td>
+	<td>{{ intruders.number }}</td>
+    <td>{{ intruders.status }}</td>
+	</tr>
+  {% endfor %}
+	</tbody>
+  </table>
+{% endblock %}

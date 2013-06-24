@@ -1,41 +1,5 @@
 {% extends "layout.html" %}
 {% block body %}
- {% if session.logged_in %}
-    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
-      <table>
-		<tr>
-			<td>Фамилия</td>
-			<td><input type=text size=30 name=surname></td>
-		</tr>
-		<tr>
-			<td>Имя</td>
-			<td><input type=text size=30 name=name></td>
-		</tr>
-		<tr>
-			<td>Отчество</td>
-			<td><input type=text size=30 name=patronymic></td>
-		</tr>
-		<tr>
-			<td>Компания</td>
-			<td><input type=text size=30 name=company></td>
-		</tr>
-		<tr>
-			<td>Должность</td>
-			<td><input type=text size=30 name=post></td>
-		</tr>
-		<tr>
-			<td>Табельный номер</td>
-			<td><input type=text size=30 name=number></td>
-		</tr>
-		<tr>
-			<td>Статус</td>
-			<td><input type=text size=30 name=status></td>
-		</tr>
-		<td></td>
-		<td><input type=submit value=Записать></td>
-	</table>
-    </form>
-  {% endif %}
   <table>
 	<colgroup>
 		<col id="f" />

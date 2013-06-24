@@ -64,6 +64,13 @@ def show_entries():
     intruders = cur.fetchall()
     return render_template('show_entries.html', intruders=intruders)
 
+@app.route('/login_entries')
+def show_entries():
+    db = get_db()
+    cur = db.execute('select id, surname, name, patronymic, company, post, number, status from intruders order by id asc')
+    intruders = cur.fetchall()
+    return render_template('login_entries.html', intruders=intruders)
+
 """@app.route('/show_detail/<id>')
 def show_detail(id):
     db = get_db()
@@ -107,7 +114,7 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
+            return redirect(url_for('login_entries'))
     return render_template('login.html', error=error)
 
 
